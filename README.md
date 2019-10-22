@@ -11,8 +11,7 @@ Parking is free for employees. Employee car details will be available as a text 
  
 Input Output : Input will be a text file with car type, registration number and corresponding entry and exit time.<br>  
 example:<br>
-  Bike KL 07 BK 8760 10:50am 11:50am<br>   
-  Car 5seater KL 11 TA 9160 10:20am 12:00pm <br>
+  Bike KL 07 BK 8760 10:50am 11:50am <br> Car 5seater KL 11 TA 9160 10:20am 12:00pm <br>
   Car 5seater KL 01 UK 1060 11:42am 01:25pm<br> <br>
  
 Output should be a detailed bill (vehicle type, registration number, duration of parking and amount to be paid) as a text file.<br> 
