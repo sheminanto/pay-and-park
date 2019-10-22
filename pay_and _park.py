@@ -26,34 +26,16 @@ class vehicle:
         self.regno = regno
         self.timein = timein
         self.timeout = timeout
+        self.lists = {"Bike":[20,10,1],"Car5seater":[30,20,1],"Car7seater":[35,25,.5],"Truck":[100,40,2]} 
 
     def pay(self):
         duration=vtime(self.timein,self.timeout)
         dur=duration.seconds/3600
 
-        if(self.vtype=="Bike"):
-            if((dur-1)>0):
-                payment=(int(dur-1)*10)+int(dur-int(dur)+0.999)*10+20
-            else:
-                payment=20
-
-        elif(self.vtype=="Car5seater"):
-            if((dur-1)>0):
-                payment=(int(dur-1)*20)+int(dur-int(dur)+0.999)*20+30
-            else:
-                payment=30 
-
-        elif(self.vtype=="Car7seater"):
-            if((dur-.5)>0):
-                payment=(int(dur-.5)*25)+int(dur-int(dur)+0.999)*25+35
-            else:
-                payment=35
-
-        elif(self.vtype=="Truck"):
-            if((dur-2)>0):
-                payment=(int(dur-2)*40)+int(dur-int(dur)+0.999)*40+100
-            else:
-                payment=100
+        if((dur - self.lists[self.vtype][2])>0):
+            payment=(int(dur-self.lists[self.vtype][2])*self.lists[self.vtype][1]) +int(dur-int(dur)+0.999)*self.lists[self.vtype][1] + self.lists[self.vtype][0]
+        else:
+            payment=self.lists[self.vtype][0]     
 
         filewriter(i.vtype,i.regno,duration,payment)
   
