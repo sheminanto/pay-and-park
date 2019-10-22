@@ -29,13 +29,15 @@ class vehicle:
         self.lists = {"Bike":[20,10,1],"Car5seater":[30,20,1],"Car7seater":[35,25,.5],"Truck":[100,40,2]} 
 
     def pay(self):
-        duration=vtime(self.timein,self.timeout)
-        dur=duration.seconds/3600
+        duration = vtime(self.timein,self.timeout)
+        dur = duration.seconds/3600
 
         if((dur - self.lists[self.vtype][2])>0):
-            payment=(int(dur-self.lists[self.vtype][2])*self.lists[self.vtype][1]) +int(dur-int(dur)+0.999)*self.lists[self.vtype][1] + self.lists[self.vtype][0]
+            payment = ((int(dur - self.lists[self.vtype][2]) * self.lists[self.vtype][1]) +
+                        int(dur - int(dur) + 0.999) * self.lists[self.vtype][1] +
+                        self.lists[self.vtype][0])
         else:
-            payment=self.lists[self.vtype][0]     
+            payment = self.lists[self.vtype][0]     
 
         filewriter(i.vtype,i.regno,duration,payment)
   
