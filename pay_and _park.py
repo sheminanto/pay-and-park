@@ -32,13 +32,22 @@ class vehicle:
         dur=duration.seconds/3600
 
         if(self.vtype=="Bike"):
-            payment=(int(dur-1)*10)+int(dur-int(dur)+0.999)*10+20
+            if((dur-1)>0):
+                payment=(int(dur-1)*10)+int(dur-int(dur)+0.999)*10+20
+            else:
+                payment=20
 
         elif(self.vtype=="Car5seater"):
-            payment=(int(dur-1)*20)+int(dur-int(dur)+0.999)*20+30 
+            if((dur-1)>0):
+                payment=(int(dur-1)*20)+int(dur-int(dur)+0.999)*20+30
+            else:
+                payment=30 
 
         elif(self.vtype=="Car7seater"):
-            payment=(int(dur-.5)*25)+int(dur-int(dur)+0.999)*25+35
+            if((dur-.5)>0):
+                payment=(int(dur-.5)*25)+int(dur-int(dur)+0.999)*25+35
+            else:
+                payment=35
 
         elif(self.vtype=="Truck"):
             if((dur-2)>0):
